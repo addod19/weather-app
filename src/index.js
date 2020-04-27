@@ -2,15 +2,17 @@ import data from './data';
 import ui from './ui';
 
 
-const controller = ( (data, ui) => {
-
+const controller = ( (data, ui) => { 
+  let wD;
   ui.renderPage();
   ui.renderData();
   const defaultWeather = async (city = 'Accra') => {
     try {
       const res = await data.getWeather('Accra');
-      ui.renderData(res);
       console.log(res);
+      ui.renderData(res);
+      wD = await res;
+      return res;
     }catch(e) {
       console.log('sorry we could not find your city');
     }
@@ -27,7 +29,7 @@ const controller = ( (data, ui) => {
         
 
         const sData = data.getWeather(val);
-        console.log(sData.then());
+        console.log(sData);
         
         ui.renderData(sData);
 

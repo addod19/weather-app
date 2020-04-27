@@ -40,8 +40,8 @@ const ui = ( () => {
   }
 
   const renderData = (weather, unit = 'F') => {
-    let feels_like, temp, min_temp, max_temp;
-    const name = weather;
+    let { feels_like, temp, min_temp, max_temp } = Promise ;
+    const { name } = Promise;
     const getData = () => {
       console.log('heyyyyyyy');
       // data.getWeather('Accra');
