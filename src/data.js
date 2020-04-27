@@ -9,7 +9,7 @@ const data = ( () => {
   });
   
 
-  return getWeather;
+  return { getWeather };
 })();
 
 
