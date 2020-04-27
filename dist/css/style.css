@@ -1,7 +1,13 @@
 /* body {
     background-image: url('../images/first.jpeg');
 } */
-
+.custom-nav {
+    background: linear-gradient(red, gold, green);
+    height: 2em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
 .container {
     height: 50em;
     border: 1px solid black;
