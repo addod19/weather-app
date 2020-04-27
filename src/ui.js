@@ -1,9 +1,35 @@
 import first from '../dist/images/first.jpeg';
 import data from './data';
 
-const ui = ( () => {
-  const renderPage = () => {
+const ui = (() => {
+  const renderPage = async() => {
     const root = document.getElementById('root');
+    
+    const upper = document.createElement('DIV');
+    upper.className = 'row';
+    upper.setAttribute('id', 'apiData');
+
+    const date = Date.now().toString();
+    const res = await data.getWeather('Accra');
+
+    const {
+      feels_like, temp, temp_min, temp_max,
+    } = res.main;
+    const { name } = res.name;
+    console.log(res);
+    
+    upper.innerHTML = `
+      <div class="col-sm-12">
+        <div class="content">
+          <span>${date}</span>
+          <h3>${res.name}, ${res.sys.country} - ${temp} </h3>
+          <div> ${res.weather[0].description}</div>
+          <div>Feels like ${feels_like} </div>
+          <div>Min ${temp_min} - Max ${temp_max} </div>
+          <a href="" id="toggeleUnits">Change to C</a>
+        </div>
+      </div>
+    `;
 
     const nav = document.createElement('NAV');
     nav.className = 'nav custom-nav';
@@ -12,13 +38,8 @@ const ui = ( () => {
     const main = document.createElement('DIV');
     main.className = 'container';
     main.style.backgroundImage = first;
-    console.log(main);
 
     root.append(nav, main);
-
-    const upper = document.createElement('DIV');
-    upper.className = 'row col-12';
-    upper.setAttribute('id', 'apiData');
 
     const lower = document.createElement('DIV');
     lower.className = 'row col-12';
@@ -37,24 +58,11 @@ const ui = ( () => {
 
 
     main.append(upper, lower);
-  }
-
-  const renderData = (weather, unit = 'F') => {
-    let { feels_like, temp, min_temp, max_temp } = Promise ;
-    const { name } = Promise;
-    const getData = () => {
-      console.log('heyyyyyyy');
-      // data.getWeather('Accra');
-    }
-    // document.getElementById('btnSearch').addEventListener('click', getData);
-
-    return getData;
-  }
+  };
 
   return {
     renderPage,
-    renderData,
-  }
+  };
 })();
 
 export default ui;
