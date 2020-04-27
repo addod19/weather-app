@@ -118,7 +118,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst data = ( () => {\n  // 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ \"./src/data.js\");\n/* harmony import */ var _ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ui */ \"./src/ui.js\");\n\n\n\n\nconst controller = ( (data, ui) => {\n\n//   const weatherData;\n//   const unit = 'F';\n  console.log('hi it is me');\n  data('Accra');\n})(_data__WEBPACK_IMPORTED_MODULE_0__[\"default\"], _ui__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data */ \"./src/data.js\");\n/* harmony import */ var _ui__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ui */ \"./src/ui.js\");\n\n\n\n\nconst controller = ( (data, ui) => {\n\n//   const weatherData;\n//   const unit = 'F';\n//   const btn = document.getElementById('btnSearch').value;\n//   btn.addEventListener('click', console.log('you clicked btn'));\n//   data.getWeather('Accra');\n  const defaultWeather = async (city = 'Accra') => {\n    try {\n      const res = await data.getWeather('Accra');\n      console.log(res);\n    }catch(e) {\n      console.log('sorry we could not find your city');\n    }\n    return {\n        defaultWeather,\n    }\n\n  }\n  console.log('hi it is me');\n  data('Accra');\n})(_data__WEBPACK_IMPORTED_MODULE_0__[\"default\"], _ui__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 

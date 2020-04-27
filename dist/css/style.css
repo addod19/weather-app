@@ -10,5 +10,7 @@
 }
 .container {
     height: 50em;
-    border: 1px solid black;
+    background-image: url('../images/first.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
