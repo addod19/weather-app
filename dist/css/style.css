@@ -1,3 +1,8 @@
 /* body {
     background-image: url('../images/first.jpeg');
 } */
+
+.container {
+    height: 50em;
+    border: 1px solid black;
+}
