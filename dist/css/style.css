@@ -21,4 +21,9 @@
     width: 60%;
     height: 30em;
     border: 1px solid red;
+    margin-left: 20%;
+}
+.w-60 {
+    width: 60% !important;
+    margin-left: 20% !important;
 }
