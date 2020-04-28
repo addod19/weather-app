@@ -1,4 +1,29 @@
-.hello {
-    color: red;
-    text-align: center;
+/* body {
+    background-image: url('../images/first.jpeg');
+} */
+.custom-nav {
+    background: linear-gradient(red, gold, green);
+    height: 2em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    height: 50em;
+    background-image: url('../images/first.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content {
+    display: grid;
+    align-self: center;
+    width: 60%;
+    height: 30em;
+    border: 1px solid red;
+    margin-left: 20%;
+}
+.w-60 {
+    width: 60% !important;
+    margin-left: 20% !important;
 }

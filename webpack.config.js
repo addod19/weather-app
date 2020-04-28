@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 module.exports = {
+  entry: './src/index.js',
   mode: 'development',
   module: {
     rules: [
@@ -15,7 +16,7 @@ module.exports = {
         use: ['file-loader'],
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|svg|jpg|gif|jpeg)$/,
         use: ['file-loader'],
       },
     ],
