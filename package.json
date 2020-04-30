@@ -1,7 +1,6 @@
 {
   "name": "weather-app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack"
@@ -20,6 +19,7 @@
   "dependencies": {
     "css-loader": "^3.5.3",
     "file-loader": "^6.0.0",
+    "save": "^2.4.0",
     "style-loader": "^1.2.0",
     "webpack": "^4.43.0"
   },
@@ -28,5 +28,6 @@
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
     "webpack-cli": "^3.3.11"
-  }
+  },
+  "description": ""
 }
