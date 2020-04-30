@@ -1,28 +1,35 @@
 const ui = (() => {
+  
   const renderPage = (getData, unit = 'F') => {
+    console.log("checking");
     const root = document.getElementById('root');
-    
+    console.log(root); 
     const {
       feels_like, temp, temp_min, temp_max,
-    } = getData;
-    const { name } = getData.name;
-    const { main, description, icon} = getData[0].main;
-
+    } = getData.main;
+    console.log(feels_like);
     
-    const nav = document.createElement('NAV');
+    const { name } = getData.name;
+    const { main, description, icon} = getData.weather[0];
+
+    const nav = document.createElement('nav');
+    console.log(nav)
     nav.className = 'nav custom-nav';
     nav.innerText = 'Weather App';
     
-    const mainn = document.createElement('DIV');
+    const mainn = document.createElement('div');
+    console.log(mainn);
     mainn.className = 'container';
     mainn.style.backgroundImage = first;
-
+    
     root.append(nav, mainn);
-
-    const upper = document.createElement('DIV');
+     
+    const upper = document.createElement('div');
+    
+    
     upper.className = 'row';
     upper.setAttribute('id', 'apiData');
-
+    console.log(upper);
     upper.innerHTML = `
     <div class="col-sm-12">
       <div class="content text-center">
@@ -35,10 +42,11 @@ const ui = (() => {
       </div>
     </div>
     `;
-
-    const lower = document.createElement('DIV');
+    
+    const lower = document.createElement('div');
     lower.className = 'row col-12';
-
+    console.log(lower);
+    
     const searchInput = document.createElement('INPUT');
     searchInput.setAttribute('placeholder', 'enter city');
     searchInput.setAttribute('id', 'search');
@@ -50,9 +58,11 @@ const ui = (() => {
     searchBtn.setAttribute('id', 'btnSearch');
 
     lower.append(searchInput, searchBtn);
-
+    
 
     mainn.append(upper, lower);
+
+    return root;
   };
 
   return {

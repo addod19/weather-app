@@ -1,9 +1,11 @@
 {
   "name": "weather-app",
   "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --mode production",
+    "watch": "webpack --watch --mode development",
+    "server": "webpack-dev-server --content-base dist"
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,8 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
   },
   "description": ""
 }
