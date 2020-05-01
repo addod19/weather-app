@@ -1,7 +1,6 @@
 import data from './data';
 import ui from './ui';
-console.log("is the file running?");
-// console.log(data.getWeather('Accra', 'imperial'));
+// console.log("is the file running?");
 
 const controller = ((data, ui) => {
   let wD;
@@ -9,21 +8,21 @@ const controller = ((data, ui) => {
   const toggleUnits = (s) => units == 'F' ? 'imperial' : 'metric';
   const searchVal = document.getElementById('search');
 
-  const defaultWeather = async (city = 'Abuja', unit = 'imperial') => {
+  const defaultWeather = async (city = 'Accra', unit = 'imperial') => {
     try {
       const result = await data.getWeather(city, unit);
-      // console.log(weather[0].main);
-      console.log(result);
-      ui.renderPage(result, unit);
+      // console.log(result);
+      // ui.renderPage(result);
       wD = await result;
-      return result;
+      // console.log(result.weather[0]);
+      // console.log(result.main);  
       
+      ui.renderPage(result);
+      return result;
     } catch (e) {
       console.log('sorry we could not find your city');
     }
-    return {
-      defaultWeather,
-    };
+   
   };
 
   defaultWeather();
@@ -33,7 +32,7 @@ const controller = ((data, ui) => {
       const val = document.getElementById('search').value;
       const unit = 'F';
       const sData = data.getWeather(val, unit);
-      console.log(sData);
+      // console.log(sData);
       resetValue(val);
       ui.renderData(sData);
     }

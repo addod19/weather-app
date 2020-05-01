@@ -1,67 +1,39 @@
+import data from './data';
 const ui = (() => {
   
-  const renderPage = (getData, unit = 'F') => {
+  const renderPage = async (defaultWeather) => {
     console.log("checking");
     const root = document.getElementById('root');
-    console.log(root); 
+    // console.log('suoer');
+    
+    // const result = defaultWeather.then( (data) => {
+    //   return data;
+    // });
+
+    const result = await data.getWeather('Accra', 'C');
+    // console.log(result.main);
+    
     const {
       feels_like, temp, temp_min, temp_max,
-    } = getData.main;
-    console.log(feels_like);
-    
-    const { name } = getData.name;
-    const { main, description, icon} = getData.weather[0];
+    } = result.main;
 
-    const nav = document.createElement('nav');
-    console.log(nav)
-    nav.className = 'nav custom-nav';
-    nav.innerText = 'Weather App';
+    const { main, description, icon} = result.weather[0];
+    console.log(feels_like, temp);
     
-    const mainn = document.createElement('div');
-    console.log(mainn);
-    mainn.className = 'container';
-    mainn.style.backgroundImage = first;
-    
-    root.append(nav, mainn);
-     
-    const upper = document.createElement('div');
-    
-    
-    upper.className = 'row';
-    upper.setAttribute('id', 'apiData');
-    console.log(upper);
-    upper.innerHTML = `
-    <div class="col-sm-12">
-      <div class="content text-center">
-        <span>${date.toString()} - ${icon} </span>
-        <h3>${name}, ${data.sys.country} - ${Math.round(temp)} º${unit} </h3>
-        <div>${description}</div>
-        <div>Feels like ${feels_like} º${unit} </div>
-        <div>Min ${Math.round(temp_min)} º${unit} - Max ${Math.round(temp_max)} º${unit}</div>
-        <a href="" id="toggeleUnits">Change to º</a>
-      </div>
-    </div>
-    `;
-    
-    const lower = document.createElement('div');
-    lower.className = 'row col-12';
-    console.log(lower);
-    
-    const searchInput = document.createElement('INPUT');
-    searchInput.setAttribute('placeholder', 'enter city');
-    searchInput.setAttribute('id', 'search');
-    searchInput.className = 'form-control w-60';
+    const { name } = result;
+    // console.log(result.weather[0].main);
+    console.log(result);
 
-    const searchBtn = document.createElement('button');
-    searchBtn.className = 'btn btn-primary form-control mt-4 w-60';
-    searchBtn.innerText = 'Search';
-    searchBtn.setAttribute('id', 'btnSearch');
+    document.getElementById('name').innerText = `${name}, ${result.sys.country}`;
+    document.getElementById('description').innerText = `${description} - ${main}`;
+    document.getElementById('feels').innerText = `Feels like: ${feels_like} ºF`;
+    document.getElementById('temp').innerText = `Min temp ${temp_min}ºF - Max temp ${temp_max}ºF`
 
-    lower.append(searchInput, searchBtn);
+
     
+    // const { main, description, icon} = getData.weather[0];
 
-    mainn.append(upper, lower);
-
+  
     return root;
   };
 
