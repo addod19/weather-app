@@ -11,12 +11,7 @@ const controller = ((data, ui) => {
   const defaultWeather = async (city = 'Accra', unit = 'imperial') => {
     try {
       const result = await data.getWeather(city, unit);
-      // console.log(result);
-      // ui.renderPage(result);
       wD = await result;
-      // console.log(result.weather[0]);
-      // console.log(result.main);  
-      
       ui.renderPage(result);
       return result;
     } catch (e) {
@@ -35,6 +30,9 @@ const controller = ((data, ui) => {
       // console.log(sData);
       resetValue(val);
       ui.renderData(sData);
+    } else if (event.target.id === 'toggeleUnits'){
+        units = unit === 'F' ? 'C' : 'F';
+        defaultWeather(wD.name, toggleUnits(units));
     }
   };
 

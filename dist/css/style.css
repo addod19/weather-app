@@ -1,12 +1,15 @@
 /* body {
     background-image: url('../images/first.jpeg');
 } */
-.custom-nav {
+/* .custom-nav {
     background: linear-gradient(red, gold, green);
     height: 2em;
     width: 100%;
     display: flex;
     flex-direction: column;
+} */
+.m-wrap {
+    background: linear-gradient(gray, black);
 }
 .container {
     height: 50em;
@@ -15,12 +18,29 @@
     background-size: cover;
 }
 
+.wrap {
+    width: 60%;
+    margin-left: 20%;
+}
+.units {
+    border: 1px solid black;
+    width: 40%;
+    margin-left: 30%;
+    height: 2em;
+    background: linear-gradient(gray, black);
+    color: aliceblue;
+    border: none;
+    text-align: center;
+}
+.units:hover {
+    text-decoration: none;
+}
 .content {
     display: grid;
     align-self: center;
     width: 60%;
     height: 30em;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin-left: 20%;
 }
 .w-60 {

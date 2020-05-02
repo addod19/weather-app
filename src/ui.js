@@ -1,40 +1,28 @@
 import data from './data';
 const ui = (() => {
   
-  const renderPage = async (defaultWeather) => {
-    console.log("checking");
-    const root = document.getElementById('root');
-    // console.log('suoer');
-    
-    // const result = defaultWeather.then( (data) => {
-    //   return data;
-    // });
-
+  const renderPage = async (defaultWeather, unit) => {
     const result = await data.getWeather('Accra', 'C');
-    // console.log(result.main);
     
     const {
       feels_like, temp, temp_min, temp_max,
     } = result.main;
 
     const { main, description, icon} = result.weather[0];
-    console.log(feels_like, temp);
-    
     const { name } = result;
-    // console.log(result.weather[0].main);
+    const curDate = Date();
+
+    // img.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+
     console.log(result);
+    document.getElementById('date').innerText = `${curDate}`;
+    document.getElementById('name').innerText = `${name}, ${result.sys.country} - ${Math.round(temp)}`;
+    document.getElementById('description').innerText = `${description.toUpperCase()} - ${main}`;
+    document.getElementById('feels').innerText = `Feels like: ${Math.round(feels_like)} ºF`;
+    document.getElementById('temp').innerText = `Min temp ${Math.round(temp_min)} ºF - Max temp ${Math.round(temp_max)} ºF`
+    document.getElementById('toggeleUnits').innerText = `Change to º${
+      unit === 'C' ? 'F' : 'C'}`;
 
-    document.getElementById('name').innerText = `${name}, ${result.sys.country}`;
-    document.getElementById('description').innerText = `${description} - ${main}`;
-    document.getElementById('feels').innerText = `Feels like: ${feels_like} ºF`;
-    document.getElementById('temp').innerText = `Min temp ${temp_min}ºF - Max temp ${temp_max}ºF`
-
-
-    
-    // const { main, description, icon} = getData.weather[0];
-
-  
-    return root;
   };
 
   return {
