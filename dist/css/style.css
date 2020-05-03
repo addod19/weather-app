@@ -12,10 +12,11 @@
     background: linear-gradient(gray, black);
 }
 .container {
-    height: 50em;
+    height: 40em;
     background-image: url('../images/first.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Oswald', sans-serif;
 }
 
 .wrap {
@@ -34,6 +35,13 @@
 }
 .units:hover {
     text-decoration: none;
+}
+.neu {
+    box-shadow: 5px 10px 5px rgba(14, 116, 116, 0.2), -5px -5px 5px rgb(168, 167, 167, 0.2);
+}
+.neu-nav {
+    box-shadow: 5px 10px 5px white, -5px -5px 5px rgba(168, 167, 167, 0.699);
+
 }
 .content {
     display: grid;

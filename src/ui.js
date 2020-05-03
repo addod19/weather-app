@@ -12,11 +12,11 @@ const ui = (() => {
     const { name } = result;
     const curDate = Date();
 
-    // img.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+    const img = document.createElement('img');
+    const showIcon = img.src = `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
-    console.log(result);
     document.getElementById('date').innerText = `${curDate}`;
-    document.getElementById('name').innerText = `${name}, ${result.sys.country} - ${Math.round(temp)}`;
+    document.getElementById('name').innerText = `${name}, ${result.sys.country} - ${Math.round(temp)}ºF`;
     document.getElementById('description').innerText = `${description.toUpperCase()} - ${main}`;
     document.getElementById('feels').innerText = `Feels like: ${Math.round(feels_like)} ºF`;
     document.getElementById('temp').innerText = `Min temp ${Math.round(temp_min)} ºF - Max temp ${Math.round(temp_max)} ºF`

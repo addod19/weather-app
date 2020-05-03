@@ -1,12 +1,11 @@
 import data from './data';
 import ui from './ui';
-// console.log("is the file running?");
 
 const controller = ((data, ui) => {
   let wD;
   const units = 'F';
   const toggleUnits = (s) => units == 'F' ? 'imperial' : 'metric';
-  const searchVal = document.getElementById('search');
+  const searchVal = document.getElementById('searchInput');
 
   const defaultWeather = async (city = 'Accra', unit = 'imperial') => {
     try {
@@ -23,28 +22,40 @@ const controller = ((data, ui) => {
   defaultWeather();
 
   const handleClick = (event) => {
-    if (event.target.id === 'btnSearch') {
-      const val = document.getElementById('search').value;
+    if (event.target.id === 'searchBtn') {  
+      const val = document.getElementById('searchInput').value;
       const unit = 'F';
       const sData = data.getWeather(val, unit);
-      // console.log(sData);
+      console.log(sData);
       resetValue(val);
-      ui.renderData(sData);
+      ui.renderPage(sData);
     } else if (event.target.id === 'toggeleUnits'){
         units = unit === 'F' ? 'C' : 'F';
         defaultWeather(wD.name, toggleUnits(units));
+    } else if (searchVal.value) {
+        defaultWeather(searchVal.value, toggleUnits(units));
+    } else {
+      console.log('Please enter name of city!!!');
     }
   };
 
+  const myKeyPress = (event) => {
+    if (searchVal.value && event.which == 13) {
+      defaultWeather(searchVal.value, toggleUnits(units));
+    }
+  }
+
   const resetValue = (s) => {
-    s = document.getElementById('search').value;
+    s = document.getElementById('searchInput').value;
     s = '';
     return s;
   };
 
   defaultWeather();
 
-
   
-  // document.getElementById('btnSearch').addEventListener('click', handleClick);
+  
+  searchVal.addEventListener('click', handleClick);
+  searchVal.addEventListener('click', myKeyPress);
+  document.getElementById('searchBtn').addEventListener('click', handleClick);
 })(data, ui);
