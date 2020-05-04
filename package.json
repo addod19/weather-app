@@ -1,0 +1,36 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "webpack --mode production",
+    "watch": "webpack --watch --mode development",
+    "server": "webpack-dev-server --content-base dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/addod19/weather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/addod19/weather-app/issues"
+  },
+  "homepage": "https://github.com/addod19/weather-app#readme",
+  "dependencies": {
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
+    "save": "^2.4.0",
+    "style-loader": "^1.2.0",
+    "webpack": "^4.43.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "description": ""
+}
