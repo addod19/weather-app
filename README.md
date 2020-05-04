@@ -19,15 +19,15 @@
 
 ### Desktop/Laptoop device
 
-<img src="/dist/images/l.PNG" alt="">
+<img src="/dist/images/l.png" alt="">
 
 ### Tables device
 
-<img src="/dist/images/m.PNG" alt="">
+<img src="/dist/images/m.png" alt="">
 
 ### Mobile device
 
-<img src="/dist/images/s.PNG" alt="">
+<img src="/dist/images/s.png" alt="">
 
 ## Built With
 
