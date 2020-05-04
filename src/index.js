@@ -3,15 +3,15 @@ import ui from './ui';
 
 const controller = ((data, ui) => {
   let wD;
-  const units = 'F';
+  let units = 'F';
   const toggleUnits = (s) => units == 'F' ? 'imperial' : 'metric';
   const searchVal = document.getElementById('searchInput');
 
   const defaultWeather = async (city = 'Accra', unit = 'imperial') => {
     try {
       const result = await data.getWeather(city, unit);
+      ui.renderPage(result, units);
       wD = await result;
-      ui.renderPage(result);
       return result;
     } catch (e) {
       console.log('sorry we could not find your city');
@@ -19,23 +19,17 @@ const controller = ((data, ui) => {
    
   };
 
-  defaultWeather();
-
   const handleClick = (event) => {
-    if (event.target.id === 'searchBtn') {  
-      const val = document.getElementById('searchInput').value;
-      const unit = 'F';
-      const sData = data.getWeather(val, unit);
-      console.log(sData);
-      resetValue(val);
-      ui.renderPage(sData);
+    if (event.target.id === 'searchInput') {
+      resetValue(searchVal);
     } else if (event.target.id === 'toggeleUnits'){
-        units = unit === 'F' ? 'C' : 'F';
-        defaultWeather(wD.name, toggleUnits(units));
+        event.peventDefault;
+        console.log(wD);    
+        units = units === 'F' ? 'C' : 'F';
+        console.log(defaultWeather(wD.name, toggleUnits(units)));
     } else if (searchVal.value) {
         defaultWeather(searchVal.value, toggleUnits(units));
-    } else {
-      console.log('Please enter name of city!!!');
+        resetValue(searchVal);
     }
   };
 
@@ -45,17 +39,14 @@ const controller = ((data, ui) => {
     }
   }
 
-  const resetValue = (s) => {
-    s = document.getElementById('searchInput').value;
-    s = '';
-    return s;
+  const resetValue = (searchVal) => {
+    searchVal.value = '';
   };
 
   defaultWeather();
 
-  
-  
   searchVal.addEventListener('click', handleClick);
   searchVal.addEventListener('click', myKeyPress);
   document.getElementById('searchBtn').addEventListener('click', handleClick);
+  document.getElementById('toggeleUnits').addEventListener('click', handleClick);
 })(data, ui);
