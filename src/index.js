@@ -24,9 +24,9 @@ const controller = ((data, ui) => {
       resetValue(searchVal);
     } else if (event.target.id === 'toggeleUnits'){
         event.peventDefault;
-        console.log(wD);    
+        console.log(wD.main);    
         units = units === 'F' ? 'C' : 'F';
-        console.log(defaultWeather(wD.name, toggleUnits(units)));
+        defaultWeather(wD.name, toggleUnits(units));
     } else if (searchVal.value) {
         defaultWeather(searchVal.value, toggleUnits(units));
         resetValue(searchVal);
