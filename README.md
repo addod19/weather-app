@@ -38,7 +38,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://github.com/addod19/weather-app/)
+[Live Demo Link](https://addod19.github.io/weather-app/)
 
 ## Getting Started
 
