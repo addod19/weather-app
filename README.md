@@ -1,6 +1,6 @@
 # Weather App
 
-> Applying the concepts of Asynchronous Javascript and the study of openweathermap APIs to building a weather app, focusing on asynchronous communication with promises or async/await
+> A weather app that pulls from the OpenWeatherMap API to allow users to search for and view the forecast in cities worldwide. Built with JavaScript
 
 ## Features
 
