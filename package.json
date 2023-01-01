@@ -19,17 +19,17 @@
   },
   "homepage": "https://github.com/addod19/weather-app#readme",
   "dependencies": {
-    "css-loader": "^3.5.3",
+    "css-loader": "^6.7.3",
     "file-loader": "^6.0.0",
     "save": "^2.4.0",
     "style-loader": "^1.2.0",
-    "webpack": "^4.43.0"
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^3.10.3"
   },
   "description": ""
